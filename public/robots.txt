@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akademiatertil.com/sitemap-index.xml

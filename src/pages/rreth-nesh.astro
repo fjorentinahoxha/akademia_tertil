@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+---
+
+<Layout
+  title="Rreth Nesh — Akademi e mësimit të Kuranit online"
+  description="Akademia Tertil është një akademi online e mësimit të Kuranit dhe arabishtes për femra në gjuhën shqipe. Mësoni më shumë për misionin tonë."
+  keywords={[...SITE.keywords, 'akademi tertil', 'rreth nesh akademia tertil']}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Rreth Nesh</span>
+      <h1>Një akademi e ndërtuar me dashuri për Kuran dhe për motrat tona</h1>
+      <p class="lead">
+        Akademia Tertil ofron mësim Kurani online për femra në gjuhën shqipe, duke bashkuar metodën klasike
+        të mësimit me lehtësinë e teknologjisë.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content">
+      <h2>Misioni ynë</h2>
+      <p>
+        Misioni ynë është të bëjmë leximin e Kuranit të arritshëm për çdo motër shqipfolëse — pa varësisht
+        nga vendi ku jeton apo nga niveli prej të cilit niset. Ne besojmë se mësimi i Kuranit nuk duhet
+        të jetë privilegj, por një dhuratë që i takon çdo zemre.
+      </p>
+
+      <h2>Pse emri “Tertil”?</h2>
+      <p>
+        Fjala <em>Tertil</em> është një koncept i shenjtë në Kuran. Allahu i Madhërishëm na urdhëron:
+        <strong>“Ve rettilil-Kur’ane tertila”</strong> — <em>“Dhe lexoje Kuranin me përpikëri, ngadalë e qartë.”</em>
+        Ky është themeli ynë: lexim i Kuranit jo vetëm me gjuhë, por me zemër, me ritmin e duhur, me Texhuid
+        të saktë dhe me kuptim.
+      </p>
+
+      <h2>Çfarë e bën akademinë tonë të veçantë</h2>
+      <ul class="check">
+        <li><strong>Vetëm për femra:</strong> mësueset, ambienti dhe komuniteti — gjithçka është ndërtuar
+          që ti të ndihesh komode dhe e respektuar.</li>
+        <li><strong>Metoda Nuranije:</strong> përdorim El-Kaideh En-Nuranijeh, abetaren më të besueshme
+          për ndërtimin e themeleve të leximit të Kuranit.</li>
+        <li><strong>Mësim praktik:</strong> nuk vetëm dëgjon — ti lexon, dhe mësuesja të korrigjon në kohë reale.</li>
+        <li><strong>Online dhe fleksibël:</strong> nga çdo qytet i Shqipërisë, Kosovës, Maqedonisë ose nga
+          diaspora — mjafton një lidhje interneti.</li>
+      </ul>
+
+      <h2>Si zhvillohen mësimet?</h2>
+      <p>
+        Mësimet zhvillohen online përmes platformave të videokonferencës, në grupe të vogla ose individualisht.
+        Ti regjistrohesh përmes Instagramit tonë, ne caktojmë një orar që ju përshtatet, dhe pastaj fillon
+        rrugëtimi jot me Kuran — hap pas hapi.
+      </p>
+
+      <div class="cta-inline">
+        <p>Gati për të filluar?</p>
+        <a class="btn btn--primary" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+          Na shkruani në Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+    padding: 4rem 0 3rem;
+  }
+  .lead { font-size: 1.15rem; color: var(--color-ink-soft); max-width: 65ch; }
+  .content { max-width: 760px; }
+  .content h2 { margin-top: 2.4rem; }
+  .check { list-style: none; padding: 0; }
+  .check li {
+    padding-left: 1.6rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: 700;
+  }
+  .cta-inline {
+    margin-top: 2.5rem;
+    padding: 1.6rem;
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-inline p { margin: 0; font-weight: 600; color: var(--color-green-900); }
+</style>

@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE, COURSES } from '../../data/site';
+---
+
+<Layout
+  title="Kurset — Mësim Kurani dhe Arabishtje Online"
+  description="Të gjitha kurset e Akademisë Tertil: mësimi i shkronjave arabe, abetarja Nuranije, Texhuid praktik, Xhuzi Amme. Mësim Kurani online për femra."
+  keywords={[...SITE.keywords, 'kurse kurani online', 'kurse arabishtje shqip']}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Kurset tona</span>
+      <h1>Kurse të Kuranit dhe arabishtes online për femra</h1>
+      <p class="lead">
+        Programe të strukturuara nga fillestare absolute deri te leximi i avancuar me Texhuid.
+        Zgjidh kursin që të përshtatet dhe regjistrohu përmes Instagramit.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        {COURSES.map(course => (
+          <article class="card course-detail">
+            <span class="tag">{course.level}</span>
+            <h2 style="font-size: 1.35rem; margin-top: 0.7rem;">{course.title}</h2>
+            <p class="muted">{course.description}</p>
+            <dl class="meta">
+              <div><dt>Për kë:</dt><dd>{course.audience}</dd></div>
+              <div><dt>Kohëzgjatja:</dt><dd>{course.duration}</dd></div>
+            </dl>
+            <a class="btn btn--ghost" href={`/kurset/${course.slug}`}>Shiko detajet →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="container text-center">
+      <h2>Nuk je e sigurt cili kurs të përshtatet?</h2>
+      <p>Na shkruani në Instagram dhe ne ju ndihmojmë të zgjidhni nivelin e duhur për ju.</p>
+      <a class="btn btn--primary" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+        Pyet në Instagram
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+    padding: 4rem 0 3rem;
+  }
+  .lead { font-size: 1.15rem; color: var(--color-ink-soft); max-width: 65ch; }
+  .course-detail { display: flex; flex-direction: column; }
+  .meta {
+    margin: 1rem 0 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .meta div { display: flex; gap: 0.4rem; font-size: 0.92rem; }
+  .meta dt { font-weight: 600; color: var(--color-green-900); margin: 0; }
+  .meta dd { margin: 0; color: var(--color-ink-soft); }
+  .course-detail .btn { margin-top: auto; align-self: flex-start; }
+  .cta-block {
+    background: var(--color-green-900);
+    color: var(--color-cream);
+    padding: 3.5rem 0;
+    margin-top: 2rem;
+  }
+  .cta-block h2 { color: var(--color-cream); }
+  .cta-block p { color: rgba(247, 241, 227, 0.85); margin-bottom: 1.8rem; }
+</style>

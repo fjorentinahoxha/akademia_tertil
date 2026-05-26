@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+---
+
+<Layout
+  title="Kontakt — Regjistrohu përmes Instagram"
+  description="Kontakto Akademinë Tertil përmes mesazhit privat në Instagram @akademia_tertil për t'u regjistruar në kurset e Kuranit online."
+  keywords={[...SITE.keywords, 'kontakt akademia tertil', 'regjistrim mesim kurani']}
+>
+  <section class="page-hero">
+    <div class="container text-center">
+      <span class="eyebrow">Kontakt</span>
+      <h1>Lidhuni me ne</h1>
+      <p class="lead">
+        Mënyra më e shpejtë për t'u regjistruar ose për të bërë pyetje është përmes mesazhit privat (DM) në Instagram.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <a class="contact-card" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+        <div class="contact-card__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </div>
+        <h2>Na shkruani në Instagram</h2>
+        <p class="muted">Përgjigjemi sa më shpejt të jetë e mundur, zakonisht brenda 24 orëve.</p>
+        <span class="contact-card__handle">@{SITE.instagram.handle}</span>
+        <span class="contact-card__cta">Hap Instagram →</span>
+      </a>
+
+      <div class="info">
+        <h2>Si funksionon regjistrimi</h2>
+        <ol>
+          <li>Klikoni butonin më lart dhe na shkruani një mesazh në Instagram.</li>
+          <li>Na tregoni cilin kurs ju intereson dhe nivelin tuaj (fillestar / mesatar / i avancuar).</li>
+          <li>Ne ju kthejmë përgjigje me oraret e disponueshme dhe detajet e mësimit.</li>
+          <li>Pas konfirmimit, ju dërgojmë linkun e mësimit dhe nisni rrugëtimin tuaj me Kuran.</li>
+        </ol>
+
+        <div class="hours">
+          <strong>Përgjigjemi:</strong> çdo ditë, gjatë orëve të zakonshme.
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+    padding: 4rem 0 3rem;
+  }
+  .lead { font-size: 1.15rem; color: var(--color-ink-soft); max-width: 56ch; margin-left: auto; margin-right: auto; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .contact-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    border: 1px solid var(--color-cream-dark);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold-light);
+  }
+  .contact-card__icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--color-green-700);
+    color: var(--color-cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+  }
+  .contact-card h2 { margin: 0.3rem 0; }
+  .contact-card__handle {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-gold);
+    font-weight: 600;
+  }
+  .contact-card__cta {
+    margin-top: 0.6rem;
+    font-weight: 600;
+    color: var(--color-green-700);
+  }
+  .info h2 { margin-top: 0; }
+  .info ol { padding-left: 1.2rem; color: var(--color-ink-soft); }
+  .info ol li { margin-bottom: 0.6rem; }
+  .hours {
+    margin-top: 1.4rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    color: var(--color-green-900);
+  }
+
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

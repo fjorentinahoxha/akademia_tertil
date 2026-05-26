@@ -1,0 +1,151 @@
+---
+const navItems = [
+  { href: '/', label: 'Ballina' },
+  { href: '/rreth-nesh', label: 'Rreth Nesh' },
+  { href: '/kurset', label: 'Kurset' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="brand" aria-label="Akademia Tertil — ballina">
+      <span class="brand__mark" aria-hidden="true">ٱ</span>
+      <span class="brand__text">
+        <strong>Akademia Tertil</strong>
+        <small>Mësim Kurani Online</small>
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="sr-only nav-toggle" aria-label="Hap menynë" />
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Menyja kryesore">
+      <ul>
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+              class={currentPath === item.href ? 'is-active' : ''}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-cream);
+    border-bottom: 1px solid var(--color-cream-dark);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(140%) blur(6px);
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--color-green-900);
+  }
+  .brand__mark {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-green-700);
+    color: var(--color-cream);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    box-shadow: var(--shadow-sm);
+  }
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .brand__text strong {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+  }
+  .brand__text small {
+    color: var(--color-muted);
+    font-size: 0.78rem;
+  }
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+  .site-nav a {
+    text-decoration: none;
+    color: var(--color-ink-soft);
+    font-weight: 500;
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover,
+  .site-nav a.is-active {
+    color: var(--color-green-900);
+    border-bottom-color: var(--color-gold-light);
+  }
+  .nav-burger { display: none; }
+
+  @media (max-width: 720px) {
+    .nav-burger {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 36px; height: 36px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 1px solid var(--color-cream-dark);
+    }
+    .nav-burger span {
+      width: 18px; height: 2px; background: var(--color-green-900);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .site-nav {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--color-cream);
+      border-bottom: 1px solid var(--color-cream-dark);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .site-nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 1.25rem 1rem;
+    }
+    .site-nav li { border-bottom: 1px solid var(--color-cream-dark); }
+    .site-nav li:last-child { border-bottom: 0; }
+    .site-nav a { display: block; padding: 0.9rem 0; }
+    .nav-toggle:checked ~ .site-nav { max-height: 400px; }
+  }
+</style>

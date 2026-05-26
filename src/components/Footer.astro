@@ -1,0 +1,95 @@
+---
+import { SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <strong class="site-footer__brand">Akademia Tertil</strong>
+      <p class="muted">Mësim Kurani online për femra — me dashuri, përkushtim dhe metodë.</p>
+    </div>
+
+    <div>
+      <h4>Lidhje</h4>
+      <ul>
+        <li><a href="/">Ballina</a></li>
+        <li><a href="/rreth-nesh">Rreth Nesh</a></li>
+        <li><a href="/kurset">Kurset</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Na ndiqni</h4>
+      <a
+        class="ig-link"
+        href={SITE.instagram.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Akademia Tertil në Instagram"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        @{SITE.instagram.handle}
+      </a>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <small>© {year} {SITE.name}. Të gjitha të drejtat e rezervuara.</small>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-green-900);
+    color: var(--color-cream);
+    padding-top: 3rem;
+    margin-top: 4rem;
+  }
+  .site-footer__inner {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding-bottom: 2rem;
+  }
+  .site-footer h4 {
+    color: var(--color-gold-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; }
+  .site-footer li { margin-bottom: 0.4rem; }
+  .site-footer a {
+    color: var(--color-cream);
+    text-decoration: none;
+    opacity: 0.85;
+  }
+  .site-footer a:hover { opacity: 1; color: var(--color-gold-light); }
+  .site-footer .muted { color: rgba(247, 241, 227, 0.7); }
+  .site-footer__brand {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--color-cream);
+  }
+  .ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(247, 241, 227, 0.1);
+    border-radius: 8px;
+  }
+  .site-footer__bottom {
+    border-top: 1px solid rgba(247, 241, 227, 0.12);
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    color: rgba(247, 241, 227, 0.65);
+  }
+</style>

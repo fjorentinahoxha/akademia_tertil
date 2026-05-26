@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE, COURSES } from '../../data/site';
+
+export function getStaticPaths() {
+  return COURSES.map(course => ({
+    params: { slug: course.slug },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: course.title,
+  description: course.longDescription,
+  inLanguage: 'sq',
+  educationalLevel: course.level,
+  timeRequired: course.duration,
+  provider: {
+    '@type': 'EducationalOrganization',
+    name: SITE.name,
+    sameAs: SITE.instagram.url,
+    url: SITE.url,
+  },
+  // Schema.org now requires hasCourseInstance for Course rich results
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    inLanguage: 'sq',
+    courseWorkload: course.duration,
+  },
+  offers: {
+    '@type': 'Offer',
+    category: 'Paid',
+    availability: 'https://schema.org/InStock',
+    url: SITE.instagram.url,
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Ballina', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Kurset', item: `${SITE.url}/kurset` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: course.title,
+      item: `${SITE.url}/kurset/${course.slug}`,
+    },
+  ],
+};
+---
+
+<Layout
+  title={course.seoTitle}
+  description={course.seoDescription}
+  keywords={[...SITE.keywords, course.title.toLowerCase()]}
+  schema={[courseSchema, breadcrumbSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Ballina</a> <span>/</span>
+        <a href="/kurset">Kurset</a> <span>/</span>
+        <span aria-current="page">{course.shortTitle}</span>
+      </nav>
+      <span class="eyebrow">{course.level}</span>
+      <h1>{course.title}</h1>
+      <p class="lead">{course.description}</p>
+
+      <div class="meta-row">
+        <div><strong>Për kë:</strong> {course.audience}</div>
+        <div><strong>Kohëzgjatja:</strong> {course.duration}</div>
+        <div><strong>Formati:</strong> 100% online</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content">
+      <h2>Çfarë do të mësoni</h2>
+      <p>{course.longDescription}</p>
+
+      <h2>Si funksionon ky kurs</h2>
+      <ol class="steps">
+        <li><strong>Regjistrohu</strong> — na shkruan në Instagram @{SITE.instagram.handle}.</li>
+        <li><strong>Caktojmë orarin</strong> — gjejmë një kohë që ju përshtatet.</li>
+        <li><strong>Mësim online</strong> — ndiqni mësimet nga shtëpia, me video dhe ushtrime praktike.</li>
+        <li><strong>Përparim i matshëm</strong> — pas çdo seance dini saktësisht ku jeni dhe çfarë vjen më pas.</li>
+      </ol>
+
+      <div class="cta-inline">
+        <p>Të intereson ky kurs?</p>
+        <a class="btn btn--primary" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+          Regjistrohu përmes Instagram
+        </a>
+      </div>
+
+      <p class="back"><a href="/kurset">← Shiko të gjitha kurset</a></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+    padding: 3rem 0 3rem;
+  }
+  .crumbs {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+  .crumbs a { color: var(--color-green-700); text-decoration: none; }
+  .crumbs a:hover { text-decoration: underline; }
+  .crumbs span { margin: 0 0.3rem; }
+  .lead { font-size: 1.1rem; color: var(--color-ink-soft); max-width: 62ch; }
+  .meta-row {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+  .meta-row strong { color: var(--color-green-900); }
+  .content { max-width: 760px; }
+  .content h2 { margin-top: 2.4rem; }
+  .steps { padding-left: 1.2rem; }
+  .steps li { margin-bottom: 0.6rem; }
+  .cta-inline {
+    margin-top: 2.5rem;
+    padding: 1.6rem;
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-inline p { margin: 0; font-weight: 600; color: var(--color-green-900); }
+  .back { margin-top: 2rem; }
+  .back a { font-weight: 600; }
+</style>

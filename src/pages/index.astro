@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, COURSES } from '../data/site';
+
+const faqs = [
+  {
+    q: 'A janë mësimet vetëm për femra?',
+    a: 'Po. Akademia Tertil ofron mësim Kurani online ekskluzivisht për femra dhe vajza. Mësueset janë femra dhe ambienti i mësimit është komod për të gjitha moshat.',
+  },
+  {
+    q: 'A duhet të di arabisht për të filluar?',
+    a: 'Jo. Mund të fillosh nga zero — mësimi i shkronjave arabe dhe abetarja Nuranije janë kurse fillestare që të ndërtojnë bazën hap pas hapi.',
+  },
+  {
+    q: 'Si zhvillohen mësimet?',
+    a: 'Të gjitha mësimet zhvillohen online, përmes platformave të videokonferencës. Mund të ndjekësh kursin nga shtëpia jote, kudo që ndodhesh.',
+  },
+  {
+    q: 'Si mund të regjistrohem?',
+    a: 'Mënyra më e shpejtë e regjistrimit është përmes mesazhit privat (DM) në Instagramin tonë @akademia_tertil. Ne të kthejmë përgjigje me detajet e kursit.',
+  },
+  {
+    q: 'A ofroni mësim Kurani për fëmijë?',
+    a: 'Po. Pranojmë vajza të reja dhe fëmijë në kurset tona, duke përshtatur ritmin dhe materialet sipas moshës.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const courseListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: COURSES.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: new URL(`/kurset/${c.slug}`, SITE.url).toString(),
+    name: c.title,
+  })),
+};
+---
+
+<Layout
+  title="Mësim Kurani Online për Femra"
+  description="Akademia Tertil — mësim Kurani online për femra në gjuhën shqipe: shkronjat arabe, abetarja Nuranije, Texhuid praktik dhe Xhuzi Amme. Regjistrohu përmes Instagram."
+  schema={[faqSchema, courseListSchema]}
+>
+  {/* HERO */}
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow">Akademi Islame Online</span>
+        <h1>Mësim Kurani Online për Femra në Gjuhën Shqipe</h1>
+        <p class="lead">
+          Mësoni leximin e Kuranit hap pas hapi — nga shkronjat arabe deri te Texhuidi praktik. Mësime online,
+          me mësuese të kualifikuara, në ambient të qetë e komod për çdo motër dhe vajzë.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+            Regjistrohu përmes Instagram
+          </a>
+          <a class="btn btn--ghost" href="/kurset">Shiko kurset</a>
+        </div>
+        <ul class="hero__bullets">
+          <li>✦ Vetëm për femra dhe vajza</li>
+          <li>✦ Mësime 100% online</li>
+          <li>✦ Nga fillestare deri te leximi me Texhuid</li>
+        </ul>
+      </div>
+
+      <aside class="hero__card" aria-label="Veçoritë e akademisë">
+        <div class="hero__cardInner">
+          <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <p class="muted">
+            “Më i miri prej jush është ai që e mëson Kuranin dhe ua mëson atë të tjerëve.”
+          </p>
+          <small class="muted">— Hadith, Buhariu</small>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {/* SERVICES */}
+  <section class="section" id="kurset">
+    <div class="container text-center">
+      <span class="eyebrow">Çfarë mësoni te ne</span>
+      <h2>Kurset tona të Kuranit dhe Arabishtes</h2>
+      <hr class="divider" />
+      <p class="muted" style="max-width: 640px; margin: 0 auto 2.5rem;">
+        Programe të strukturuara për çdo nivel — nga zero deri te leximi me Texhuid. Zgjidh kursin që të përshtatet.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="grid grid--2">
+        {COURSES.map(course => (
+          <article class="card course-card">
+            <span class="tag">{course.level}</span>
+            <h3>{course.title}</h3>
+            <p class="muted">{course.description}</p>
+            <p class="course-card__meta"><strong>Për:</strong> {course.audience}</p>
+            <a class="course-card__link" href={`/kurset/${course.slug}`}>
+              Më shumë për këtë kurs →
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* WHY US */}
+  <section class="section why">
+    <div class="container">
+      <div class="why__grid">
+        <div>
+          <span class="eyebrow">Pse Akademia Tertil</span>
+          <h2>Mësim Kurani me metodë, dashuri dhe përkushtim</h2>
+          <p>
+            Emri <em>Tertil</em> vjen nga koncepti kuranor i leximit me përpikëri e ngadalshmëri —
+            ashtu siç na e ka mësuar Allahu i Madhërishëm: <em>“Ve rettilil-Kur’ane tertila.”</em>
+            Ky është themeli i çdo mësimi që ofrojmë.
+          </p>
+          <p>
+            Ne besojmë se çdo motër e ka të drejtën të mësojë Kuranin në gjuhën e saj — pa pasur nevojë
+            të dalë nga shtëpia, pa orare të vështira, pa pengesa.
+          </p>
+        </div>
+        <ul class="why__list">
+          <li><strong>Ambient vetëm për femra</strong> — komod, i respektueshëm, i sigurt.</li>
+          <li><strong>Metoda Nuranije</strong> — sistemi më i besueshëm botëror për leximin e Kuranit.</li>
+          <li><strong>Mësime praktike</strong> — jo vetëm teori; ti lexon dhe korrigjohesh çdo seancë.</li>
+          <li><strong>Ritmi yt</strong> — grupe të vogla dhe vëmendje individuale për secilën.</li>
+          <li><strong>100% online</strong> — nga Tirana në Prishtinë, nga Shkupi në diasporë.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section class="section faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow">Pyetje të shpeshta</span>
+        <h2>Çdo gjë që duhet të dini para se të filloni</h2>
+        <hr class="divider" />
+      </div>
+
+      <div class="faq__list">
+        {faqs.map(item => (
+          <details class="faq__item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="cta">
+    <div class="container text-center">
+      <h2>Gati për të filluar rrugëtimin tuaj me Kuran?</h2>
+      <p>Na shkruani në Instagram dhe ne ju kthejmë përgjigje me detajet e regjistrimit.</p>
+      <a class="btn btn--primary cta__btn" href={SITE.instagram.url} target="_blank" rel="noopener noreferrer">
+        Na shkruani në Instagram →
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(circle at top right, rgba(212, 166, 53, 0.12), transparent 60%),
+      linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+    padding: 4rem 0 5rem;
+  }
+  .hero__grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+  }
+  .hero__copy h1 { margin-bottom: 1rem; }
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-ink-soft);
+    max-width: 56ch;
+  }
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .hero__bullets {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+  .hero__card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-cream-dark);
+    position: relative;
+  }
+  .hero__card::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--color-gold-light);
+    border-radius: calc(var(--radius-lg) - 8px);
+    pointer-events: none;
+  }
+  .hero__cardInner { text-align: center; }
+  .bism {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--color-green-900);
+    margin-bottom: 1rem;
+    direction: rtl;
+  }
+  .course-card { display: flex; flex-direction: column; }
+  .course-card h3 { margin-top: 0.8rem; }
+  .course-card__meta { font-size: 0.92rem; }
+  .course-card__link {
+    margin-top: auto;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-green-700);
+  }
+  .course-card__link:hover { color: var(--color-green-900); }
+  .why { background: var(--color-cream-dark); }
+  .why__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .why__list { list-style: none; padding: 0; margin: 0; }
+  .why__list li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(15, 61, 46, 0.1);
+    color: var(--color-ink-soft);
+  }
+  .why__list li:last-child { border-bottom: 0; }
+  .why__list strong { color: var(--color-green-900); }
+  .faq__list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .faq__item {
+    background: var(--color-white);
+    border: 1px solid var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.3rem;
+  }
+  .faq__item summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-green-900);
+    list-style: none;
+    position: relative;
+    padding-right: 1.5rem;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--color-gold);
+  }
+  .faq__item[open] summary::after { content: '−'; }
+  .faq__item p { margin: 0.8rem 0 0; color: var(--color-ink-soft); }
+  .cta {
+    background: var(--color-green-900);
+    color: var(--color-cream);
+    padding: 4rem 0;
+    margin-top: 2rem;
+  }
+  .cta h2 { color: var(--color-cream); }
+  .cta p { color: rgba(247, 241, 227, 0.85); margin-bottom: 1.8rem; }
+  .cta__btn {
+    background: var(--color-gold);
+    color: var(--color-green-900);
+  }
+  .cta__btn:hover { background: var(--color-gold-light); color: var(--color-green-900); }
+
+  @media (max-width: 860px) {
+    .hero__grid, .why__grid { grid-template-columns: 1fr; }
+  }
+</style>
