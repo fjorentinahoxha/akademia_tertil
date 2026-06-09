@@ -1,0 +1,8 @@
+name = "akademia-tertil"
+compatibility_date = "2025-01-01"
+
+# Static-assets-only deployment: serves the built dist/ folder.
+# No Worker script needed because Astro outputs pure HTML/CSS/JS.
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
