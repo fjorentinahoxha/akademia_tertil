@@ -17,8 +17,6 @@ export const SITE = {
     'mësim kurani online',
     'mësim kurani për femra',
     'mësim kurani shqip',
-    'mësim arabishtje',
-    'mësim arabishtje online',
     'texhuid',
     'texhuid online',
     'texhuid praktik',
@@ -56,7 +54,7 @@ export const COURSES: Course[] = [
       'Hapi i parë në rrugëtimin tuaj me Kuran: njohja me alfabetin arab dhe shqiptimi i saktë i shkronjave.',
     audience: 'Fillestare absolute · Vetëm për femra',
     longDescription:
-      'Në këtë kurs do të mësoni nga zero shkronjat e alfabetit arab, format e tyre në fillim, mes dhe fund të fjalës, si dhe shqiptimin e saktë (mexharixhin) të secilës shkronjë. Mësimi zhvillohet online, hap pas hapi, me ushtrime praktike pas çdo seance.',
+      'Në këtë kurs do të mësoni nga zero shkronjat e alfabetit arab, format e tyre në fillim, mes dhe fund të fjalës, si dhe shqiptimin e saktë (مخارج الحروف) të secilës shkronjë. Mësimi zhvillohet online, hap pas hapi, me ushtrime praktike pas çdo seance.',
     level: 'Fillestar',
     duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i shkronjave arabe online | Akademia Tertil',
