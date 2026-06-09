@@ -54,14 +54,14 @@ export const COURSES: Course[] = [
     shortTitle: 'Mësimi i shkronjave',
     description:
       'Hapi i parë në rrugëtimin tuaj me Kuran: njohja me alfabetin arab dhe shqiptimi i saktë i shkronjave.',
-    audience: 'Fillestare absolute · Femra dhe fëmijë',
+    audience: 'Fillestare absolute · Vetëm për femra',
     longDescription:
       'Në këtë kurs do të mësoni nga zero shkronjat e alfabetit arab, format e tyre në fillim, mes dhe fund të fjalës, si dhe shqiptimin e saktë (mexharixhin) të secilës shkronjë. Mësimi zhvillohet online, hap pas hapi, me ushtrime praktike pas çdo seance.',
     level: 'Fillestar',
     duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i shkronjave arabe online | Akademia Tertil',
     seoDescription:
-      'Mësoni shkronjat arabe nga zero — online, hap pas hapi, për femra dhe fëmijë. Bazë e fortë për leximin e Kuranit.',
+      'Mësoni shkronjat arabe nga zero — online, hap pas hapi, vetëm për femra. Bazë e fortë për leximin e Kuranit.',
   },
   {
     slug: 'abetare-nuranije',
@@ -69,14 +69,14 @@ export const COURSES: Course[] = [
     shortTitle: 'Abetare Nuranije',
     description:
       'Metoda më e njohur botërore për të mësuar leximin e Kuranit në mënyrë të saktë dhe sistematike.',
-    audience: 'Fillestare · Femra dhe fëmijë',
+    audience: 'Fillestare · Vetëm për femra',
     longDescription:
       'El-Kaideh En-Nuranijeh është abetarja klasike që përdoret në mbarë botën për të mësuar leximin e Kuranit. Përmes mësimeve online do të kaloni çdo faqe të kësaj abetareje me udhëzime praktike, duke ndërtuar themele të forta për leximin e Mus’hafit.',
     level: 'Fillestar',
     duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i abetares El-Kaideh En-Nuranijeh online | Akademia Tertil',
     seoDescription:
-      'Mësimi i abetares Nuranije online për femra dhe fëmijë — metodë sistematike për lexim të saktë të Kuranit.',
+      'Mësimi i abetares Nuranije online vetëm për femra — metodë sistematike për lexim të saktë të Kuranit.',
   },
   {
     slug: 'texhuid-praktik',

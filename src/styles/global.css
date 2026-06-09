@@ -153,6 +153,14 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 2px;
 }
 
+/* inline Quranic verse — renders in the system's Arabic font */
+.ayah {
+  font-size: 1.15em;
+  font-weight: 500;
+  color: var(--color-green-900);
+  unicode-bidi: isolate;
+}
+
 /* visually hidden — preserves SEO/accessibility */
 .sr-only {
   position: absolute;
