@@ -102,6 +102,7 @@ const courseListSchema = {
             <h3>{course.title}</h3>
             <p class="muted">{course.description}</p>
             <p class="course-card__meta"><strong>Për:</strong> {course.audience}</p>
+            <p class="course-card__meta"><strong>Çmimi:</strong> {course.monthlyPrice} {SITE.currency.label} / muaj</p>
             <a class="course-card__link" href={`/kurset/${course.slug}`}>
               Më shumë për këtë kurs →
             </a>
@@ -132,7 +133,7 @@ const courseListSchema = {
           <li><strong>Ambient vetëm për femra</strong> — komod, i respektueshëm, i sigurt.</li>
           <li><strong>Metoda Nuranije</strong> — sistemi më i besueshëm botëror për leximin e Kuranit.</li>
           <li><strong>Mësime praktike</strong> — jo vetëm teori; ti lexon dhe korrigjohesh çdo seancë.</li>
-          <li><strong>Ritmi yt</strong> — grupe të vogla dhe vëmendje individuale për secilën.</li>
+          <li><strong>Grupe të vogla</strong> — mësim i organizuar ku secila ka hapësirë të lexojë e të pyesë.</li>
           <li><strong>100% online</strong> — nga Tirana në Prishtinë, nga Shkupi në diasporë.</li>
         </ul>
       </div>

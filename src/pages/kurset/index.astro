@@ -16,6 +16,9 @@ import { SITE, COURSES } from '../../data/site';
         Programe të strukturuara nga fillestare absolute deri te leximi i avancuar me Texhuid.
         Zgjidh kursin që të përshtatet dhe regjistrohu përmes Instagramit.
       </p>
+      <p class="schedule-note">
+        <strong>Orari:</strong> {SITE.schedule.frequency} · <strong>Pagesa:</strong> mujore · {SITE.schedule.pauseNote}.
+      </p>
     </div>
   </section>
 
@@ -30,6 +33,7 @@ import { SITE, COURSES } from '../../data/site';
             <dl class="meta">
               <div><dt>Për kë:</dt><dd>{course.audience}</dd></div>
               <div><dt>Kohëzgjatja:</dt><dd>{course.duration}</dd></div>
+              <div><dt>Çmimi:</dt><dd>{course.monthlyPrice} {SITE.currency.label} / muaj</dd></div>
             </dl>
             <a class="btn btn--ghost" href={`/kurset/${course.slug}`}>Shiko detajet →</a>
           </article>
@@ -55,6 +59,17 @@ import { SITE, COURSES } from '../../data/site';
     padding: 4rem 0 3rem;
   }
   .lead { font-size: 1.15rem; color: var(--color-ink-soft); max-width: 65ch; }
+  .schedule-note {
+    margin-top: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--color-cream-dark);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: var(--color-ink-soft);
+    max-width: 65ch;
+  }
+  .schedule-note strong { color: var(--color-green-900); }
   .course-detail { display: flex; flex-direction: column; }
   .meta {
     margin: 1rem 0 1.4rem;
