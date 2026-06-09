@@ -2,7 +2,7 @@
 
 Faqe webi për [@akademia_tertil](https://www.instagram.com/akademia_tertil/), akademi online për mësimin e Kuranit dhe arabishtes për femra.
 
-Ndërtuar me **Astro 4** (statike, e shpejtë, SEO-friendly) dhe e gatshme për deploy në **Netlify**.
+Ndërtuar me **Astro 4** (statike, e shpejtë, SEO-friendly) dhe e gatshme për deploy në **Cloudflare Pages**.
 
 ## Çfarë përfshin
 
@@ -44,36 +44,36 @@ npm run build      # gjeneron dist/
 npm run preview    # parashikim lokal i versionit të prodhimit
 ```
 
-## Deploy në Netlify
+## Deploy në Cloudflare Pages
 
-### Opsioni 1 — Përmes UI-së (më e thjeshtë)
+Domeni `akademia-tertil.com` është regjistruar te Cloudflare, ndaj Pages është zgjedhja më e thjeshtë: një dashboard për domenin, DNS-në dhe hostingin.
 
-1. Bëni push këtë repo në GitHub.
-2. Shkoni te [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import an existing project**.
-3. Zgjidhni `fjorentinahoxha/akademia_tertil`.
-4. Netlify do të lexojë `netlify.toml` automatikisht — vetëm klikoni **Deploy**.
+### Hapat (përmes UI-së)
 
-### Opsioni 2 — Përmes Netlify CLI
+1. Shko te [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**.
+2. Autorizo GitHub-in dhe zgjidh `fjorentinahoxha/akademia_tertil`.
+3. Konfiguro build-in:
+   - **Framework preset:** Astro
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Node version:** lexohet nga `.nvmrc` (20) — nuk duhet të prekësh
+4. Kliko **Save and Deploy**. Build i parë zgjat ~1–2 minuta.
+5. Kur projekti është gati, shko te **Custom domains** → **Set up a custom domain** → shkruaj `akademia-tertil.com`. Cloudflare e konfiguron DNS automatikisht sepse domeni është te i njëjti llogari.
+6. Shto edhe `www.akademia-tertil.com` me redirect 301 → root domain (te **Rules** → **Redirect Rules**).
 
-```bash
-npm install -g netlify-cli
-netlify login
-netlify init
-netlify deploy --prod
-```
+Çdo push në `main` deklencon një deploy të ri automatikisht.
 
 ## Pas deploy — hapat e SEO
 
 Kjo është **shumë e rëndësishme** për të dalë në Google:
 
-1. **Vendos domenin real** — kur ta kesh, ndrysho `SITE_URL` te [`astro.config.mjs`](astro.config.mjs) dhe te [`src/data/site.ts`](src/data/site.ts).
-2. **Regjistrohu në [Google Search Console](https://search.google.com/search-console)**:
-   - Shto pronën e re (domenin tënd).
-   - Verifikoje (Netlify lejon shtimin e një TXT record).
-   - Dorëzo sitemap-in: `https://domeni-yt.com/sitemap-index.xml`.
-3. **Regjistrohu në [Bing Webmaster Tools](https://www.bing.com/webmasters)** — disa shqiptarë përdorin Bing.
-4. **Kërko indeksim** — në Search Console, përdor "URL Inspection" për çdo faqe dhe kliko "Request indexing".
-5. **Backlinks** — kërko nga llogaritë e tjera islame shqiptare të vendosin linkun në bio-n e tyre të Instagram (linku përmes Linktree/website link nga IG është një sinjal i mirë).
+1. **Regjistrohu në [Google Search Console](https://search.google.com/search-console)**:
+   - Shto pronën e re (`akademia-tertil.com`).
+   - Verifikoje (Cloudflare lejon shtimin e një TXT record direkt nga DNS).
+   - Dorëzo sitemap-in: `https://akademia-tertil.com/sitemap-index.xml`.
+2. **Regjistrohu në [Bing Webmaster Tools](https://www.bing.com/webmasters)** — disa shqiptarë përdorin Bing.
+3. **Kërko indeksim** — në Search Console, përdor "URL Inspection" për çdo faqe dhe kliko "Request indexing".
+4. **Backlinks** — kërko nga llogaritë e tjera islame shqiptare të vendosin linkun në bio-n e tyre të Instagram (linku përmes Linktree/website link nga IG është një sinjal i mirë).
 
 ## Si të shtosh një kurs të ri
 
