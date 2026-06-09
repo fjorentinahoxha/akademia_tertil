@@ -3,7 +3,7 @@ export const SITE = {
   tagline: 'Mësim Kurani Online për Femra',
   description:
     'Akademia Tertil ofron mësim Kurani online për femra: mësimi i shkronjave, abetarja El-Kaideh En-Nuranijeh, Texhuid praktik dhe Xhuzi Amme me lexim. Mësime cilësore nga shtëpia juaj.',
-  url: 'https://akademiatertil.com',
+  url: 'https://akademia-tertil.com',
   locale: 'sq-AL',
   language: 'sq',
   region: 'AL',
