@@ -18,7 +18,6 @@ const courseSchema = {
   description: course.longDescription,
   inLanguage: 'sq',
   educationalLevel: course.level,
-  timeRequired: course.duration,
   provider: {
     '@type': 'EducationalOrganization',
     name: SITE.name,
@@ -30,7 +29,6 @@ const courseSchema = {
     '@type': 'CourseInstance',
     courseMode: 'online',
     inLanguage: 'sq',
-    courseWorkload: course.duration,
   },
   offers: {
     '@type': 'Offer',
@@ -44,7 +42,7 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Ballina', item: SITE.url },
+    { '@type': 'ListItem', position: 1, name: 'Kreu', item: SITE.url },
     { '@type': 'ListItem', position: 2, name: 'Kurset', item: `${SITE.url}/kurset` },
     {
       '@type': 'ListItem',
@@ -65,7 +63,7 @@ const breadcrumbSchema = {
   <section class="page-hero">
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="/">Ballina</a> <span>/</span>
+        <a href="/">Kreu</a> <span>/</span>
         <a href="/kurset">Kurset</a> <span>/</span>
         <span aria-current="page">{course.shortTitle}</span>
       </nav>

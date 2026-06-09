@@ -58,7 +58,7 @@ export const COURSES: Course[] = [
     longDescription:
       'Në këtë kurs do të mësoni nga zero shkronjat e alfabetit arab, format e tyre në fillim, mes dhe fund të fjalës, si dhe shqiptimin e saktë (mexharixhin) të secilës shkronjë. Mësimi zhvillohet online, hap pas hapi, me ushtrime praktike pas çdo seance.',
     level: 'Fillestar',
-    duration: '4–6 javë',
+    duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i shkronjave arabe online | Akademia Tertil',
     seoDescription:
       'Mësoni shkronjat arabe nga zero — online, hap pas hapi, për femra dhe fëmijë. Bazë e fortë për leximin e Kuranit.',
@@ -73,7 +73,7 @@ export const COURSES: Course[] = [
     longDescription:
       'El-Kaideh En-Nuranijeh është abetarja klasike që përdoret në mbarë botën për të mësuar leximin e Kuranit. Përmes mësimeve online do të kaloni çdo faqe të kësaj abetareje me udhëzime praktike, duke ndërtuar themele të forta për leximin e Mus’hafit.',
     level: 'Fillestar',
-    duration: '8–12 javë',
+    duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i abetares El-Kaideh En-Nuranijeh online | Akademia Tertil',
     seoDescription:
       'Mësimi i abetares Nuranije online për femra dhe fëmijë — metodë sistematike për lexim të saktë të Kuranit.',
@@ -88,7 +88,7 @@ export const COURSES: Course[] = [
     longDescription:
       'Ky kurs fokusohet në zbatimin praktik të rregullave të Texhuidit — gjatësia e zanoreve (medet), rregullat e nunit dhe mimit të sakin, idgam, ihfa, kalkale dhe më shumë. Çdo rregull shpjegohet me shembuj nga Kurani dhe pastaj praktikohet drejtpërdrejt me mësuesen.',
     level: 'I mesëm',
-    duration: '10–14 javë',
+    duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Texhuid praktik online për femra | Akademia Tertil',
     seoDescription:
       'Mësoni Texhuidin praktik online — rregullat e leximit të Kuranit, zbatuar hap pas hapi. Vetëm për femra.',
@@ -103,7 +103,7 @@ export const COURSES: Course[] = [
     longDescription:
       'Xhuzi Amme përmban suret që ne i lexojmë më së shpeshti në namaz. Në këtë kurs do të lexoni me mësuese çdo sure të këtij xhuzi me Texhuid të saktë, do të njihni kuptimin e përgjithshëm dhe do të ndihmoheni me memorizimin nëse e dëshironi.',
     level: 'I mesëm',
-    duration: '12 javë',
+    duration: 'Në bazë të ecurisë së grupit',
     seoTitle: 'Mësimi i Xhuzit Amme online | Lexim me Texhuid | Akademia Tertil',
     seoDescription:
       'Mësoni leximin e Xhuzit Amme online me Texhuid të saktë — për femra. Suret që përdorim çdo ditë në namaz.',
