@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { SITE, COURSES } from '../data/site';
+import { SITE, COURSES, TESTIMONIALS } from '../data/site';
 
 const faqs = [
   {
@@ -136,6 +136,33 @@ const courseListSchema = {
           <li><strong>Grupe të vogla</strong> — mësim i organizuar ku secila ka hapësirë të lexojë e të pyesë.</li>
           <li><strong>100% online</strong> — nga Tirana në Prishtinë, nga Shkupi në diasporë.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* TESTIMONIALS */}
+  <section id="komentet" class="section testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow">Komentet e tyre</span>
+        <h2>Disa nga mesazhet e nxënëseve tona</h2>
+        <hr class="divider" />
+        <p class="muted" style="max-width: 620px; margin: 0 auto 2.5rem;">
+          Mesazhe të vërteta nga motrat tona që po e mësojnë Kuranin me ne — të transkriptuara nga
+          bisedat tona reale.
+        </p>
+      </div>
+
+      <div class="testimonials__grid">
+        {TESTIMONIALS.map(t => (
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text" lang={t.lang}>
+              {t.text}
+            </blockquote>
+            <figcaption class="testimonial__author">— {t.author}</figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
@@ -287,6 +314,62 @@ const courseListSchema = {
   }
   .faq__item[open] summary::after { content: '−'; }
   .faq__item p { margin: 0.8rem 0 0; color: var(--color-ink-soft); }
+  .testimonials { background: var(--color-cream-dark); }
+  .testimonials__grid {
+    column-count: 2;
+    column-gap: 1.5rem;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) {
+    .testimonials__grid { column-count: 1; }
+  }
+  .testimonial {
+    break-inside: avoid;
+    margin: 0 0 1.5rem;
+    padding: 1.6rem 1.6rem 1.4rem;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(15, 61, 46, 0.08);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .testimonial__mark {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
+    background: var(--color-gold);
+    color: var(--color-cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    padding-top: 8px;
+  }
+  .testimonial__text {
+    margin: 0.5rem 0 1rem;
+    color: var(--color-ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.65;
+    quotes: none;
+  }
+  .testimonial__text::before,
+  .testimonial__text::after { content: ''; }
+  .testimonial__author {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-green-900);
+    letter-spacing: 0.02em;
+  }
   .cta {
     background: var(--color-green-900);
     color: var(--color-cream);

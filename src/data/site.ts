@@ -150,3 +150,55 @@ export const COURSES: Course[] = [
       'Mësoni leximin e sures Kehf online me Texhuid — surja e xhumasë me 110 ajete. Vetëm për femra.',
   },
 ];
+
+export type Testimonial = {
+  /** ISO language code so screen readers + Google know which language each quote is in. */
+  lang: 'sq' | 'en';
+  author: string;
+  text: string;
+};
+
+// Real WhatsApp messages from students, transcribed verbatim (no edits to the
+// students' voice). Order is loose — masonry layout reads top-to-bottom per column.
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Kam pasur nderin të ndjek dhe vazhdoj të ndjek kursin e abetares kuranore me zyshen e përkushtuar. Ajo është dritë udhëzuese, me qartësinë dhe urtësinë e saj që depërtojnë në zemër. Të mësosh dhe të lexosh fjalën e Allahut nën udhëheqjen e saj është bekim i vërtetë. Falë përkushtimit të saj të jashtëzakonshëm, çdo mësim është një hap drejt dritës dhe paqes shpirtërore. E rekomandoj me gjithë zemër këtë kurs për këdo që dëshiron të përjetojë mësimin e leximit e fjalës hyjnore.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Faleminderit zysha për përkushtimin tuaj. Mësimi i Kuranit ka qenë një vendim që duhej marrë prej kohësh. Elhamdulilah që e nisa edhe këtë Ramazan munda të lexoja edhe të ndjeja qetësinë e Kuranit. Në fillim mendoja se do të ishte e vështirë, por përkundrazi me ndihmën e Allahut dhe tuajen ishte gjithmonë edhe më e lehtë. Tani edhe në makinë dëgjoj vetëm Kuran sepse dua të më rritet veshi edhe e shijoj shumë. Imagjinoj veten në të ardhmen që edhe unë të recitoj aq rrjedhshëm. Mirësi e madhe — kushdo që e nis s’ka për të dalë i humbur, kjo është e sigurt. Faleminderit zysha për këshillat, për përkushtimin dhe disiplinën tuaj. Jam e bekuar që të kam zysh.',
+  },
+  {
+    lang: 'en',
+    author: 'Nxënëse e Akademisë',
+    text: 'Thank you, zysha, for being such a great teacher! You made the lesson easy and fun, you also are super kind and patient. This always makes me so proud of you — you are one of the best teachers I’ve ever had! Well done for such a great job you are doing. May Allah bless you and all your family.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Selam alejkum. Doja të ndaja përshtypjen time për mësimin e leximit të Kuranit. Mësimi i Kuranit ka ardhur në një moment sprove në jetën time dhe erdhi si ndriçim për shpirtin tim. Për çdo leksion me zyshen mu mbushte shpirti me më shumë dashuri për Zotin dhe me më shumë kurajo për të mësuar leximin. Mbështetja e zysheve me inkurajim më ka bërë të mos heq dorë dhe të mësoj leximin e librit më të bukur në botë. Kam bërë universitet, po subhanallah kur hapa Kuranin dhe dija të lexoja ka qenë një emocion aq i bukur, aq wow, saqë u ndjeva sikur kisha mbaruar jo një universitet po dy, elhamdulilah. Leximi i Kuranit të jep një relaks, një ndjesi përmbushjeje që unë e kam ndjerë vetëm gjatë leximit. Elhamdulilah që Allahu ma ka dhënë këtë mundësi dhe elhamdulilah që më mundësoi ta mësoj me zyshen më të mirë, e cila ka durim dhe jep më shumë se sa e ka ora e mësimit. Allahu të shpërbleftë zysha, Allahu ju shpërbleftë edhe juve goca — jemi një grup shumë i bukur.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Selam alejkum. Është hera e parë që bëj kurs për Kuranin dhe jam ndjerë shumë mirë në këtë grup — shpjegimi është shumë i qartë dhe i kuptueshëm. Allahu të shpërbleftë për mundin.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Zyshe, dua t’ju falënderoj shumë për mënyrën si jepni mësim! Ju keni gjithmonë durim me ne dhe na motivoni që të japim më të mirën. Më pëlqen shumë atmosfera pozitive në orë — ndihem rehat dhe më vjen dëshirë të mësoj. Allahu ta shpërbleftë për gjithçka.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Selam alejkum. Zysh, Allahu jua shpërbleftë ju për përkushtimin tuaj. Ndonjëherë na merr kjo botë përpara edhe harrojmë Ahiretin. Ndonëse online, mësimi i Kuranit me ju na bëhet akoma edhe më i lehtë. Je kaq e durueshme, e përkushtuar, e butë edhe këmbëngulëse, që ne të mësojmë edhe të arrijmë kënaqësinë e Allahut. Sa mirë bëra që e nisa mësimin me ju edhe motrat — po e shijoj shumë. S’ka nevojë të mendohesh dy herë. Allahu ju shpërbleftë, ju nderoftë në këtë botë edhe në botën tjetër.',
+  },
+  {
+    lang: 'sq',
+    author: 'Nxënëse e Akademisë',
+    text: 'Falënderimi i takon Allahut që më ka përzgjedhur të lexoj Kuranin, dhe që më përzgjodhi ta jetoj muajin e bekuar të Ramazanit. Edhe pse nuk jam shumë e mirë me leximin — sepse është viti i dytë që po e lexoj — këtë vit e kam lexuar Kuranin me zemër dhe me shumë përqendrim, jo thjesht për të lexuar fjalët. Para çdo sureje kërkoja kuptimin e saj, emrin, hyrjen, zhvillimin dhe mesazhin, dhe meditoja mbi çdo ajet. Çdo pjesë më prekte shpirtin dhe më jepte një kënaqësi që nuk e kisha përjetuar më parë. Kam mësuar shumë për emrat e Allahut dhe kuptimin e tyre dhe i kam kthyer në lutje. Gjatë lutjeve nuk kam harruar edhe mësueset e mia, sepse pa ato nuk do kisha qenë e përqendruar dhe e kujdesshme në rregullat e texhvidit. Për ndihmën dhe përkushtimin e tyre jam shumë mirënjohëse. Shpresoj që kushdo që e lexon këtë mesazh të ndiejë po atë kënaqësi dhe qetësi që unë përjetova, dhe ta përjetojë Kuranin me zemër.',
+  },
+];
