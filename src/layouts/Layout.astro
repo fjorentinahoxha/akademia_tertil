@@ -20,7 +20,7 @@ const {
   title,
   description = SITE.description,
   keywords = SITE.keywords as unknown as string[],
-  ogImage = '/og-default.svg',
+  ogImage = '/og-default.png',
   noindex = false,
   schema,
 } = Astro.props;
@@ -37,6 +37,8 @@ const orgSchema = {
   name: SITE.name,
   alternateName: 'Mësim Kurani Online',
   url: SITE.url,
+  logo: new URL('/logo.png', SITE.url).toString(),
+  image: new URL('/og-default.png', SITE.url).toString(),
   description: SITE.description,
   sameAs: [SITE.instagram.url],
   inLanguage: SITE.language,
@@ -83,6 +85,7 @@ const schemaArray = schema
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Logo e ${SITE.name}`} />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
@@ -91,8 +94,9 @@ const schemaArray = schema
     <meta name="twitter:image" content={ogImageAbs} />
 
     {/* Favicons */}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     {/* Fonts — preconnect first so the network round-trip starts early */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />

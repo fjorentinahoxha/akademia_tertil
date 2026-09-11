@@ -6,6 +6,15 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
+      <img
+        class="site-footer__logo"
+        src="/logo.png"
+        alt="Logo e Akademia Tertil"
+        width="72"
+        height="72"
+        loading="lazy"
+        decoding="async"
+      />
       <strong class="site-footer__brand">Akademia Tertil</strong>
       <p class="muted">Mësim Kurani online për femra — me dashuri, përkushtim dhe metodë.</p>
     </div>
@@ -71,6 +80,13 @@ const year = new Date().getFullYear();
   }
   .site-footer a:hover { opacity: 1; color: var(--color-gold-light); }
   .site-footer .muted { color: rgba(247, 241, 227, 0.7); }
+  .site-footer__logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 0.8rem;
+  }
   .site-footer__brand {
     font-family: var(--font-serif);
     font-size: 1.25rem;
